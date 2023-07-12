@@ -361,5 +361,28 @@ db.users.countDocuments();
 db.users.count();
 
 //Seleccionar todas las publicaciones y mostrar con la siguiente estructura: Título de la publicación: "title one"
+db.posts.find({}, { title: "tittle one" });
 
+//Seleccionar solo 2 usuarios
+db.users.find().limit(2);
+
+//Buscar por title 2 publicaciones
+db.publicaciones.find({ title: "Viaje a las montañas" });
+db.posts.find({ title: "Consejos para mejorar la productividad" });
+
+//Eliminar a todos los usuarios con una edad mayor a 30
+db.users.deleteMany({ age: { $gt: 30 } });
+
+//EXTRAAAAS WIII :P
+//Seleccionar el número total de publicaciones que tienen más de un comentario
+db.posts.count({ "comments": { $gt: { $size: 1 } } });
+
+//Seleccionar la última publicación creada
+db.posts.findOne({}, {}, { sort: { created: -1 } });
+
+//Seleccionar 5 publicaciones y que sean las últimas creadas
+db.posts.find().sort({ created: -1 }).limit(5);
+
+//Eliminar todas las publicaciones que tengan más de un comentario
+db.posts.deleteMany({ "comments": { $gt: { $size: 1 } } });
 
