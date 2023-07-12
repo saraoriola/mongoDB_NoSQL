@@ -317,4 +317,49 @@ db.user.updateOne(
     }
  );
  
+//Cambiar el email de dos usuarios es decir hacer la query dos veces.
+db.user.updateOne(
+    { username: "foodiechef" },
+    { $set: { email: "foodiechef1@example.com" } }
+ );
+ 
+db.user.updateOne(
+    { username: "saladlover99" },
+    { $set: { email: "saladlover991@example.com" } }
+ );
+ 
+//Aumentar en 5 años la edad de un usuario
+db.user.updateOne(
+    { username: "photographyenthusiast" },
+    { $inc: { age: 5 } }
+ );
+
+//OBTENER DATOS
+//Seleccionar todas las publicaciones
+db.posts.find();
+
+//Seleccionar las publicaciones que coincidan con el username indicado
+db.posts.find({ username: "smoothieking" });
+
+//Seleccionar todos los usuarios con una edad mayor a 20
+db.users.find({ age: { $gt: 20 } });
+
+//Seleccionar todos los usuarios con una edad inferior a 23
+db.users.find({ age: { $lt: 23 } });
+
+//Seleccionar todos los usuarios que tengan una edad entre 25 y 30 años
+db.users.find({ age: { $gte: 25, $lte: 30 } });
+
+//Mostrar los usuarios de edad menor a mayor y viceversa
+db.users.find().sort({ age: 1 });
+
+//Ordenar usuarios por edad de mayor a menor
+db.users.find().sort({ age: -1 });
+
+//Seleccionar el número total de usuarios
+db.users.countDocuments();
+db.users.count();
+
+//Seleccionar todas las publicaciones y mostrar con la siguiente estructura: Título de la publicación: "title one"
+
 
