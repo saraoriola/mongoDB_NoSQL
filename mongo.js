@@ -1,17 +1,17 @@
-//Proyecto de Red Social
+//SOCIAL NETWORK
 //Este proyecto consiste en desarrollar una red social y configurar la **base de datos** necesaria utilizando las colecciones adecuadas.
 
-//Base de Datos
+//BASE DE DATOS
 //El primer paso es crear una base de datos para nuestra red social. En este caso, utilizaremos MongoDB y crearemos una base de datos llamada `socialNetwork`. Puedes utilizar el siguiente comando para seleccionarla:
 `$ use socialNetwork`
 
-//Colecciones
+//COLECCIONES
 //A continuación, crearemos las colecciones necesarias para nuestro proyecto. En este caso, utilizaremos dos colecciones: users y posts. Puedes crearlas utilizando los siguientes comandos:
 `$ db.createCollection("users")`
 `$ db.createCollection("posts")`
 //Estas colecciones almacenarán la información de los usuarios y las publicaciones de la red social, respectivamente.
 
-// Ejecutar consultas
+//INSERTAR DATOS
 //Después de crear las colecciones, es momento de insertar datos en ellas. A continuación, se muestran las consultas para insertar al menos 15 publicaciones con 2 comentarios por publicación:
 db.posts.insertMany([
     {
@@ -211,7 +211,6 @@ db.posts.insertMany([
     }
     ]); 
 
-
 //Seguidamente, se muestran las consultas para insertar al menos 10 nuevos usuarios
 db.users.insertMany([
     {
@@ -265,10 +264,6 @@ db.users.insertMany([
         age: 24
     }
     ]);
-    
-
-//Actualizar publicaciones
-//Si deseas actualizar una publicación existente, puedes utilizar las siguientes acciones:
 
 //Actualizar todos los campos de una publicación. 
 db.posts.updateOne(
@@ -295,6 +290,20 @@ db.posts.updateOne(
 );
 
 // Cambiar el body de una publicación.
+db.posts.updateOne({ title: "Viaje a las montañas" },
+{
+  $set: {
+    body: "Hoy quiero compartir mi increíble experiencia en un viaje a las montañas."
+}
+});
+
+// Actualizar el comentario de una publicación.
+db.posts.updateOne({"comments.username": "pastalover"}, 
+{
+    $set: {"comments.$.body": "¡Me encanta tu receta!"
+}
+});
+
 
 
 
