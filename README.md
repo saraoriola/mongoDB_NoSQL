@@ -1,20 +1,19 @@
 # Proyecto de Red Social
 
-Este proyecto consiste en desarrollar una red social y configurar la base de datos necesaria utilizando las colecciones adecuadas.
+Este proyecto consiste en desarrollar una red social y configurar la **base de datos** necesaria utilizando las colecciones adecuadas.
 
 ## Base de Datos
 
 El primer paso es crear una base de datos para nuestra red social. En este caso, utilizaremos MongoDB y crearemos una base de datos llamada `socialNetwork`. Puedes utilizar el siguiente comando para seleccionarla:
 
-```shell
-$ use socialNetwork
+**`$ use socialNetwork`**
 
 ## Colecciones
 
 A continuación, crearemos las colecciones necesarias para nuestro proyecto. En este caso, utilizaremos dos colecciones: users y posts. Puedes crearlas utilizando los siguientes comandos:
 
-$ db.createCollection("users")
-$ db.createCollection("posts")
+**`$ db.createCollection("users")`**<br>
+**`$ db.createCollection("posts")`**
 
 Estas colecciones almacenarán la información de los usuarios y las publicaciones de la red social, respectivamente.
 
