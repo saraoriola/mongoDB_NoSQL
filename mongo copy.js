@@ -14,35 +14,9 @@
 //INSERTAR DATOS
 //Después de crear las colecciones, es momento de insertar datos en ellas. A continuación, se muestran las consultas para insertar al menos 15 publicaciones con 2 comentarios por publicación:
 db.posts.insertMany([
+
     {
-        title: "Viaje a las montañas", 
-        body: "Hoy quiero compartir mi increíble experiencia en un viaje a las montañas. Disfruté de hermosos paisajes, aire fresco y muchas aventuras emocionantes.",
-        username: "mountainlover",
-        comments: [
-        {
-            username: "natureenthusiast",
-            body: "Me encantan las montañas. ¡Qué experiencia increíble debiste tener!"
-        },
-        {
-            username: "hikingfanatic",
-            body: "Las montañas son mi lugar favorito. ¿Cuál fue tu ruta de senderismo favorita?"
-        }
-        ]
-    },
-    {
-        title: "Receta de pasta alfredo", 
-        body: "Hoy quiero compartir mi receta casera de pasta alfredo. Es cremosa, deliciosa y muy fácil de hacer. ¡Aquí está la lista de ingredientes y el paso a paso!",
-        username: "foodiechef",
-        comments: [
-        {
-            username: "pastalover",
-            body: "La pasta alfredo es mi plato favorito. ¡Definitivamente probaré tu receta!"
-        },
-        {
-            username: "cookingenthusiast",
-            body: "¡Gracias por compartir! Estoy emocionado de probar esta receta en casa."
-        }
-        ]
+
     },
     {
         title: "Consejos para mejorar la productividad",
@@ -212,79 +186,39 @@ db.posts.insertMany([
     ]); 
 
 //Seguidamente, se muestran las consultas para insertar al menos 10 nuevos usuarios
-db.users.insertMany([
-    {
-        username: "mountainlover",
-        email: "mountainlover@example.com",
-        age: 28
-    },
-    {
-        username: "foodiechef",
-        email: "foodiechef@example.com",
-        age: 35
-    },
-    {
-        username: "productivityguru",
-        email: "productivityguru@example.com",
-        age: 32
-    },
-    {
-        username: "musicfestivalgoer",
-        email: "musicfestivalgoer@example.com",
-        age: 27
-    },
-    {
-        username: "focusmaster",
-        email: "focusmaster@example.com",
-        age: 30
-    },
-    {
-        username: "plantlover",
-        email: "plantlover@example.com",
-        age: 29
-    },
-    {
-        username: "bookworm",
-        email: "bookworm@example.com",
-        age: 33
-    },
-    {
-        username: "saladlover99",
-        email: "saladlover99@example.com",
-        age: 26
-    },
-    {
-        username: "photographyenthusiast",
-        email: "photographyenthusiast@example.com",
-        age: 31
-    },
-    {
-        username: "smoothieking",
-        email: "smoothieking@example.com",
-        age: 24
-    }
-    ]);
+db.posts.insertOne(
+            title: "Consejos para mejorar la productividad",
+            body: "Si estás buscando formas de aumentar tu productividad, aquí tienes algunos consejos que te pueden ayudar. Desde la gestión del tiempo hasta la organización, ¡estos consejos realmente funcionan!",
+            username: "productivityguru",
+            comments: [
+            {
+                username: "efficiencyseeker",
+                body: "¡Nunca hay suficientes consejos de productividad! Gracias por compartir tus recomendaciones."
+            },
+            {
+                username: "workaholic",
+                body: "Definitivamente necesito mejorar mi productividad. ¡Voy a probar estos consejos de inmediato!"
+            }
+            ]);
 
-
-//ACTUALIZAR DATOS
 //Actualizar todos los campos de una publicación. 
 db.posts.updateOne(
   {
-    title: "Viaje a las montañas"
+    title: "Receta de ensalada de verano"
   },
   {
     $set: {
-      title: "Nuevo Viaje a las montañas",
-      body: "¡Este viaje es rápido y fácil de preparar! Perfecto para refrescar los días calurosos.",
-      username: "natureenthusiast'",
+      title: "Nueva receta de ensalada",
+      body: "¡Esta ensalada es rápida y fácil de preparar! Perfecta para refrescar los días calurosos.",
+      username: "saladlover90",
       comments: [
         {
-          username: "natureenthusiast'",
-          body: "Me encanta probar nuevas rutas. Definitivamente la haré."
+          username: "healthyeater",
+          body: "Me encanta probar nuevas recetas de ensaladas. Definitivamente la prepararé."
         },
         {
-          username: "hikingfanatic",
-          body: "Gracias por compartir este viaje."
+          username: "veggiefoodie",
+          body: "¡Adoro las ensaladas frescas! Gracias por compartir esta receta."
         }
       ]
     }
@@ -306,15 +240,8 @@ db.posts.updateOne({"comments.username": "pastalover"},
 }
 });
 
-//Actualizar todos los campos de un usuario.
-db.user.updateOne(
-    { username: "mountainlover" },
-    {
-       $set: {
-          email: "mountainlover97@example.com",
-          age: 26,
-       }
-    }
- );
- 
+
+
+
+//Actualizar comentarios.
 
