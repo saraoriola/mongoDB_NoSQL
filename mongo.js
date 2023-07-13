@@ -350,7 +350,7 @@ db.users.find({ age: { $lt: 23 } });
 //Seleccionar todos los usuarios que tengan una edad entre 25 y 30 años
 db.users.find({ age: { $gte: 25, $lte: 30 } });
 
-//Mostrar los usuarios de edad menor a mayor y viceversa
+//Mostrar los usuarios de edad menor a mayor 
 db.users.find().sort({ age: 1 });
 
 //Ordenar usuarios por edad de mayor a menor
@@ -358,7 +358,7 @@ db.users.find().sort({ age: -1 });
 
 //Seleccionar el número total de usuarios
 db.users.countDocuments();
-db.users.count();
+db.users.count(); //PARA USAR ESTE HAY QUE USARLO COMO YOLANDA db.users.find().count()
 
 //Seleccionar todas las publicaciones y mostrar con la siguiente estructura: Título de la publicación: "title one"
 db.posts.find({}, { title: "tittle one" });
@@ -367,7 +367,7 @@ db.posts.find({}, { title: "tittle one" });
 db.users.find().limit(2);
 
 //Buscar por title 2 publicaciones
-db.publicaciones.find({ title: "Viaje a las montañas" });
+db.posts.find({ title: "Viaje a las montañas" });
 db.posts.find({ title: "Consejos para mejorar la productividad" });
 
 //Eliminar a todos los usuarios con una edad mayor a 30
